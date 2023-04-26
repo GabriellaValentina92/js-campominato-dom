@@ -1,26 +1,25 @@
-const grid = document.querySelector('.big-square');
 const selectLevel = document.querySelector('#play');
-const title = document.querySelector('.intro')
+const grid = document.querySelector('.big-square');
+const title = document.querySelector('.intro');
 
-
+// bottone evento
 const btnPlay = document.querySelector('.btn');
 btnPlay.addEventListener('click', 
 function () {
+    //fare lo switch tra il titolo e la griglia del gioco
+    title.classList.add('hidden');
+    grid.classList.remove('hidden');
+
+    //valore del dropdown menù
     const nCells = parseInt(selectLevel.value);
 
-    switch (selectLevel.value) {
-		case 'easy':
-			createCell(100, grid);
-			break;
-		case 'hard':
-			createCell(81, grid);
-			break;
-		case 'crazy':
-			createCell(49, grid);
-			break;
-	}
-    
+    //stile griglia
+    grid.style.setProperty('--sideSquare', Math.sqrt(nCells));
+
+    // creare celle
     createCell(nCells, grid);
+
+    //aggiunto switch per far cambiare il colore
     const listCells = document.querySelectorAll('.cell');
     for (let i = 1; i < listCells.length; i++) {
         const cells = listCells[i];
@@ -29,8 +28,6 @@ function () {
             this.classList.toggle('clicked');
         })
     }
-
-    title.remove();
 });
 
 
@@ -40,7 +37,7 @@ function createCell (nCells, grid){
 
     grid.innerHTML = '';
 
-    for (i = 1; i < nCells; i++) {
+    for (i = 1; i <= nCells; i++) {
         grid.innerHTML += `<div class= "cell"> ${i}</div>`;
     }
 }
