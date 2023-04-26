@@ -41,3 +41,17 @@ function createCell (nCells, grid){
         grid.innerHTML += `<div class= "cell"> ${i}</div>`;
     }
 }
+
+const arrRandom = [];
+const mineFieldBombs = randomNumbombs (1, 16, arrRandom);
+arrRandom.push(mineFieldBombs)
+
+function randomNumbombs (min, max, arrRandom) {
+    let random;
+
+    do{
+        random = Math.floor(Math.random() * (max - min + 1) ) + min;
+    } while (arrRandom.includes(random))
+
+    return random;
+}
