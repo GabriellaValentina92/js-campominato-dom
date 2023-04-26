@@ -50,6 +50,10 @@
     background-color: rgb(7, 33, 111);
 }
 
+.red{
+    background-color: brown;
+}
+
 .hidden{
     display: none;
 }

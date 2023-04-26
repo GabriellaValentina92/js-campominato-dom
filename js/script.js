@@ -6,6 +6,12 @@ const title = document.querySelector('.intro');
 const btnPlay = document.querySelector('.btn');
 btnPlay.addEventListener('click', 
 function () {
+    //array random bombe
+    const arrRandom = [];
+    const mineFieldBombs = randomNumbombs (1, 16, arrRandom);
+    arrRandom.push(mineFieldBombs);
+    console.log(arrRandom)
+
     //fare lo switch tra il titolo e la griglia del gioco
     title.classList.add('hidden');
     grid.classList.remove('hidden');
@@ -19,14 +25,21 @@ function () {
     // creare celle
     createCell(nCells, grid);
 
-    //aggiunto switch per far cambiare il colore
+    //aggiunto switch per far cambiare il colore se trovo o meno la bomba
     const listCells = document.querySelectorAll('.cell');
     for (let i = 1; i < listCells.length; i++) {
         const cells = listCells[i];
         cells.addEventListener('click',
             function() {
-            this.classList.toggle('clicked');
-        })
+                mineFieldBombs;
+                if(listCells[i].includes(arrRandom[i])){
+                    this.classList.add('red')
+                    this.classList.remove('clicked')
+                } else {
+                    this.classList.toggle('clicked');
+                }
+            }
+        )
     }
 });
 
@@ -42,9 +55,6 @@ function createCell (nCells, grid){
     }
 }
 
-const arrRandom = [];
-const mineFieldBombs = randomNumbombs (1, 16, arrRandom);
-arrRandom.push(mineFieldBombs)
 
 function randomNumbombs (min, max, arrRandom) {
     let random;
@@ -53,5 +63,6 @@ function randomNumbombs (min, max, arrRandom) {
         random = Math.floor(Math.random() * (max - min + 1) ) + min;
     } while (arrRandom.includes(random))
 
+    console.log(random)
     return random;
 }
