@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    justify-content: space-between;
+    padding-inline: 10px;
+}
+
+.container-grid {
+    background-color: aquamarine;
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro{
+    padding-inline: 20rem;
+    margin-left: 10rem;
+    
+}
+
+.big-square{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    box-sizing: content-box;
+    margin: 30px 0;
+    background-color: darkcyan;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+}
+
+.clicked {
+    background-color: rgb(7, 33, 111);
+}
+
+.output{
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aquamarine;
+    padding-bottom: 1.5rem;
+}
+
+footer{
+    font-size: 1.2rem;
+    margin: 1.2rem;
+}
